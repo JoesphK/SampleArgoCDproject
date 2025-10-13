@@ -1,8 +1,10 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: nginx-deployment
   namespace: default
+  labels:
+    app: nginx
 spec:
   replicas: 1
   selector:
@@ -18,3 +20,10 @@ spec:
           image: nginx:latest
           ports:
             - containerPort: 80
+          resources:
+            limits:
+              cpu: "200m"
+              memory: "128Mi"
+            requests:
+              cpu: "100m"
+              memory: "64Mi"
