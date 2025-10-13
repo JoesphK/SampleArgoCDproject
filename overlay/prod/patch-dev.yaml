@@ -3,12 +3,12 @@ kind: Deployment
 metadata:
   name: nginx-deployment
 spec:
-  replicas: 2
+  replicas: 1
   template:
     spec:
       containers:
         - name: nginx
-          image: nginx:stable
+          image: nginx:1.27
           env:
             - name: ENVIRONMENT
-              value: production
+              value: development
