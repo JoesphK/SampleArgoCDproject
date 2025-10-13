@@ -5,8 +5,10 @@ metadata:
   namespace: default
   labels:
     app: nginx
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
 spec:
-  type: LoadBalancer   # I am using this mode because of EKS
+  type: LoadBalancer
   selector:
     app: nginx
   ports:
