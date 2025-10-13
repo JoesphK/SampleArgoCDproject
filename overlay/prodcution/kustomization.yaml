@@ -5,4 +5,4 @@ resources:
 
 patches:
   - path: patch-production.yaml
-  - path: patch-service.yaml
+
