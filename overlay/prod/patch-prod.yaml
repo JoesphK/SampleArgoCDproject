@@ -11,4 +11,4 @@ spec:
           image: nginx:1.27
           env:
             - name: ENVIRONMENT
-              value: development
+              value: production

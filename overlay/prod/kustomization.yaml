@@ -1,7 +1,7 @@
 resources:
   - ../../base
 
-namespace: dev
+namespace: prod
 
 patches:
-  - path: patch-dev.yaml
+  - path: patch-prod.yaml
