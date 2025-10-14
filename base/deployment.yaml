@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: josephk/frontend-silverkey:latest
+          image: 645537741587.dkr.ecr.us-east-1.amazonaws.com/joe/frontend
           ports:
             - containerPort: 3000
           resources:
@@ -28,7 +28,7 @@ spec:
               cpu: "100m"
               memory: "128Mi"
         - name: dependency-track
-          image: josephk/silverkey-dependency-track:latest
+          image: 645537741587.dkr.ecr.us-east-1.amazonaws.com/joe/backend
           ports:
             - containerPort: 8080
           resources:
