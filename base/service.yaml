@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: silverkey-service
   namespace: default
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-internal: "false" 
 spec:
   type: LoadBalancer
   selector:
