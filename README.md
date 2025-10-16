@@ -1,6 +1,6 @@
 # SampleArgoCDproject
 
-A sample project for deploying **nginx** using **Argo CD** as a GitOps deployment demonstration.
+A sample project for deploying **nginx** using **Argo CD** as a GitOps deployment demonstration. Ideal for testing validation with ARGOCD.
 
 ---
 
@@ -24,7 +24,7 @@ It demonstrates the GitOps model, where application configuration is stored in G
 
 ## Architecture
 
-1. A Git repository (this repo) contains Kubernetes manifest files describing the nginx deployment, service, and app configuration.  
+1. This repository contains Kubernetes manifest files describing the nginx deployment, service, and app configuration.  
 2. Argo CD watches a target branch in the repository and syncs the manifests into a Kubernetes cluster.  
 3. Changes pushed to Git are automatically applied by Argo CD to reconcile the live cluster state.
 
