@@ -1,3 +1,0 @@
-# OVERVIEW
-This is a sample project designed as a proof of concept to run applications using ARGOCD
-## How it works
