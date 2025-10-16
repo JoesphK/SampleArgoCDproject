@@ -34,7 +34,7 @@ It demonstrates the GitOps model, where application configuration is stored in G
 
 Before using this project, ensure you have:
 
-- A running Kubernetes cluster (e.g. minikube, kind, EKS, GKE, etc.)  
+- A running Kubernetes cluster (example: minikube, EKS, GKE, etc.)  
 - Argo CD installed and running in the cluster  
 - A localhost port-forward or external access to the Argo CD UI  
 
