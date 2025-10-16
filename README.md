@@ -1,6 +1,6 @@
 # SampleArgoCDproject
 
-A sample project for deploying **nginx** using **Argo CD** as a GitOps deployment demonstration. Ideal for testing validation with ARGOCD.
+A sample project for deploying **nginx** using **Argo CD** as a GitOps deployment demonstration. Ideal for testing validation with ArgoCD.
 
 ---
 
