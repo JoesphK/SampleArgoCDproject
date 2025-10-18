@@ -57,8 +57,8 @@ The project follows a GitOps workflow:
 ```mermaid
 flowchart LR
     A[Git Repository] -->|Sync| B[Argo CD]
-    B --> C[Kubernetes Cluster]
-    C --> D[Dependency track Service]
+    B --> |Update| C[Kubernetes Cluster]
+    C --> |Deploy| D[Dependency track Service]
 ```
 
 ---  
