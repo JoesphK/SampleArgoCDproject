@@ -73,13 +73,15 @@ Before using this project, ensure you have:
 
 ---
 
-## Installation & Deployment
-
-1. **Add this repository to Argo CD**
+## Installation & Deployment  
+1. **Adjust the base file**
+   - Ensure you have specified the correct path of both the frontend and the backend applications highlighed above.  
+    
+2. **Add this repository to Argo CD**  
    - In the Argo CD UI, go to **Settings → Repositories → Connect Repo**.
    - Paste the GitHub URL of this project.
 
-2. **Create a new Argo CD Application**
+3. **Create a new Argo CD Application**
    - In the Argo CD UI, click **New App**.
    - Set the repository URL to this repo.
    - Choose the desired path:
@@ -87,6 +89,6 @@ Before using this project, ensure you have:
      - `kustomize/overlays/production` for production
    - Choose your target cluster and namespace.
 
-3. **Sync the application**
+4. **Sync the application**
    - Click **Sync** to deploy Nginx automatically.
    - Open [http://PUBLIC-IP](http://PUBLIC-IP) in your browser.
