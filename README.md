@@ -1,18 +1,22 @@
 # Nginx ArgoCD deployer
 
-This project is aimed to deploy a simple nginx welcome page. It's goal is to quickly test ArgoCD deployment capability or a simple proof of concept while highlighting the fuctions of Kustomize.
-It comes in two flavours, dev and deployment.
+This project deploys a simple Nginx welcome page using Argo CD.
+Its goal is to quickly test Argo CD’s deployment capabilities or serve as a proof of concept for GitOps workflows while highlighting the functions of Kustomize.
+
+The project comes in two environments:
+Dev — for testing and experimentation
+Production — for deployment-ready setups
+
+
 ---
 
 ## Table of Contents
-
-- [Overview]  
-- [Architecture]
-- [Tools used]
-- [Prerequisites]  
-- [Installation & Deployment] 
-
-
+- [Overview](#overview)
+- [Architecture](#architecture)
+- [Tools Used](#tools-used)
+- [Prerequisites](#prerequisites)
+- [Installation & Deployment](#installation--deployment)
+ 
 
 ---
 
@@ -23,19 +27,48 @@ It demonstrates the GitOps model, where application configuration is stored in G
 
 ---
 
-## Architecture
-
-1. This repository contains Kubernetes manifest files describing the nginx deployment, service, and app configuration.  
-2. Argo CD watches a target branch in the repository and syncs the manifests into a Kubernetes cluster.  
-3. Changes pushed to Git are automatically applied by Argo CD to reconcile the live cluster state.
-
----  
+  
 ## Tools used
 
 [![Nginx](https://img.shields.io/badge/Nginx-009639?logo=nginx&logoColor=white)](https://nginx.org/en/)  
 [![Argo CD](https://img.shields.io/badge/Argo%20CD-ef7b4d?logo=argo&logoColor=white)](https://argoproj.github.io/cd/)  
 [![Kustomize](https://img.shields.io/badge/Kustomize-326ce5?logo=kubernetes&logoColor=white)](https://kustomize.io/)  
 [![Kubernetes](https://img.shields.io/badge/Kubernetes-326ce5?logo=kubernetes&logoColor=white)](https://kubernetes.io/)  
+
+
+---  
+
+## Project Structure
+.  
+├── base/  
+│   ├── deployment.yaml  
+│   ├── service.yaml  
+│   └── kustomization.yaml  
+├── overlay/  
+│   ├── dev/  
+│   │   └── kustomization.yaml  
+│   └── production/  
+│       └── kustomization.yaml  
+└── README.md  
+
+
+---  
+
+## Architecture
+
+The project follows a GitOps workflow:
+
+1. **Kustomize** manages environment-specific configurations (e.g., dev, production).  
+2. **Argo CD** continuously monitors this repository for changes.  
+3. When updates are pushed to Git, Argo CD automatically syncs the manifests into the **Kubernetes** cluster.  
+4. **Nginx** serves the welcome page once deployed.
+
+```mermaid
+flowchart LR
+    A[Git Repository] -->|Sync| B[Argo CD]
+    B --> C[Kubernetes Cluster]
+    C --> D[Nginx Service]
+```
 
 ---  
 
@@ -50,9 +83,19 @@ Before using this project, ensure you have:
 ---
 
 ## Installation & Deployment
-- Under ArgoCD, create a new repository
-- Attach the github link to the projects
-- Under ArgoCD create a new application
-- Specify the project
-- Specify which edition, Dev or Production
-- Sync the project
+
+1. **Add this repository to Argo CD**
+   - In the Argo CD UI, go to **Settings → Repositories → Connect Repo**.
+   - Paste the GitHub URL of this project.
+
+2. **Create a new Argo CD Application**
+   - In the Argo CD UI, click **New App**.
+   - Set the repository URL to this repo.
+   - Choose the desired path:
+     - `kustomize/overlays/dev` for development
+     - `kustomize/overlays/production` for production
+   - Choose your target cluster and namespace.
+
+3. **Sync the application**
+   - Click **Sync** to deploy Nginx automatically.
+   - Open [http://PUBLIC-IP](http://PUBLIC-IP) in your browser.
