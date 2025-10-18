@@ -1,12 +1,4 @@
-# Nginx ArgoCD deployer
-
-This project deploys a simple Nginx welcome page using Argo CD.
-Its goal is to quickly test Argo CD’s deployment capabilities or serve as a proof of concept for GitOps workflows while highlighting the functions of Kustomize.
-
-The project comes in two environments:
-Dev — for testing and experimentation
-Production — for deployment-ready setups
-
+# Dependency Track deployer  
 
 ---
 
@@ -22,15 +14,14 @@ Production — for deployment-ready setups
 
 ## Overview
 
-This is a proof-of-concept repository to showcase how to deploy a simple nginx application using Argo CD.  
-It demonstrates the GitOps model, where application configuration is stored in Git, and Argo CD syncs and manages the infrastructure and app state.
-
+This application is used to easily deploy dependency track's frontend and backend together using ArgoCD. Refer to these two repositories for more information:  
+Backend: https://github.com/JoesphK/Container-DT-Backend  
+Frontend: https://github.com/JoesphK/Container-DT-Frontend  
 ---
 
   
 ## Tools used
 
-[![Nginx](https://img.shields.io/badge/Nginx-009639?logo=nginx&logoColor=white)](https://nginx.org/en/)  
 [![Argo CD](https://img.shields.io/badge/Argo%20CD-ef7b4d?logo=argo&logoColor=white)](https://argoproj.github.io/cd/)  
 [![Kustomize](https://img.shields.io/badge/Kustomize-326ce5?logo=kubernetes&logoColor=white)](https://kustomize.io/)  
 [![Kubernetes](https://img.shields.io/badge/Kubernetes-326ce5?logo=kubernetes&logoColor=white)](https://kubernetes.io/)  
@@ -61,13 +52,13 @@ The project follows a GitOps workflow:
 1. **Kustomize** manages environment-specific configurations (e.g., dev, production).  
 2. **Argo CD** continuously monitors this repository for changes.  
 3. When updates are pushed to Git, Argo CD automatically syncs the manifests into the **Kubernetes** cluster.  
-4. **Nginx** serves the welcome page once deployed.
+4. **This project** will be used to deploy the application as a whole
 
 ```mermaid
 flowchart LR
     A[Git Repository] -->|Sync| B[Argo CD]
     B --> C[Kubernetes Cluster]
-    C --> D[Nginx Service]
+    C --> D[Dependency track Service]
 ```
 
 ---  
@@ -78,7 +69,7 @@ Before using this project, ensure you have:
 
 - A running Kubernetes cluster  
 - Argo CD installed and running in the cluster  
-- A localhost port-forward or external access to the Argo CD UI  
+- An external access to the Argo CD UI. 
 
 ---
 
