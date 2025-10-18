@@ -1,15 +1,16 @@
-# SampleArgoCDproject
+# Nginx ArgoCD deployer
 
-A sample project for deploying **nginx** using **Argo CD** as a GitOps deployment demonstration. Ideal for testing validation with ArgoCD.
-
+This project is aimed to deploy a simple nginx welcome page. It's goal is to quickly test ArgoCD deployment capability or a simple proof of concept while highlighting the fuctions of Kustomize.
+It comes in two flavours, dev and deployment.
 ---
 
 ## Table of Contents
 
-- [Overview](#overview)  
-- [Architecture](#architecture)  
-- [Prerequisites](#prerequisites)  
-- [Installation & Deployment](#installation--deployment)  
+- [Overview]  
+- [Architecture]
+- [Tools used]
+- [Prerequisites]  
+- [Installation & Deployment] 
 
 
 
@@ -28,13 +29,21 @@ It demonstrates the GitOps model, where application configuration is stored in G
 2. Argo CD watches a target branch in the repository and syncs the manifests into a Kubernetes cluster.  
 3. Changes pushed to Git are automatically applied by Argo CD to reconcile the live cluster state.
 
----
+---  
+## Tools used
+
+[![Nginx](https://img.shields.io/badge/Nginx-009639?logo=nginx&logoColor=white)](https://nginx.org/en/)  
+[![Argo CD](https://img.shields.io/badge/Argo%20CD-ef7b4d?logo=argo&logoColor=white)](https://argoproj.github.io/cd/)  
+[![Kustomize](https://img.shields.io/badge/Kustomize-326ce5?logo=kubernetes&logoColor=white)](https://kustomize.io/)  
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-326ce5?logo=kubernetes&logoColor=white)](https://kubernetes.io/)  
+
+---  
 
 ## Prerequisites
 
 Before using this project, ensure you have:
 
-- A running Kubernetes cluster (example: minikube, EKS, GKE, etc.)  
+- A running Kubernetes cluster  
 - Argo CD installed and running in the cluster  
 - A localhost port-forward or external access to the Argo CD UI  
 
